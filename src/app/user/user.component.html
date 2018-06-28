@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <h2>User Details</h2>
+  <form>
+    <table class="table table-striped">
+      <thead style="text-align:left">
+        <tr>
+          <th>ID</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Remove</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody style="text-align:left">
+        <tr *ngFor="let user of users">
+          <td>{{user.userId}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td><button class="btn btn-danger" (click)="removeUser(user)">Remove User</button></td>
+          <td><button class="btn btn-success" (click)="editUser(user)">Edit User</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <button class="btn btn-success" (click)="goBack()">Back</button>
+</div>

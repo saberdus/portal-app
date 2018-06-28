@@ -1,0 +1,52 @@
+<div class="dialog__header">
+  <h2 mat-dialog-title class="dialog__header-text">
+    Edit User: {{currentUser.firstName}} {{currentUser.lastName}}
+    <i class="material-icons" (click)="closeDialog()">close</i>
+  </h2>
+</div>
+
+<form class="dialog__form" (ngSubmit)="onSubmit()" #editUserForm="ngForm" (keyup.escape)="closeDialog()">
+
+  <div mat-dialog-content>
+    <div>
+      <mat-form-field id="firstname" class="form__form-field">
+        <input matInput
+               type="text"
+               name="firstname"
+               placeholder="First name"
+               [(ngModel)]="currentUser.firstName"
+               required
+               [formControl]="firstname">
+        <mat-error *ngIf="firstname.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field id="lastname" class="form__form-field">
+        <input matInput
+               type="text" class="form-control" name="lastname"  placeholder="Last name"
+               [(ngModel)]="currentUser.lastName"
+               required
+               [formControl]="lastname">
+        <mat-error *ngIf="lastname.invalid">{{getLastNameErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field id="email" class="form__form-field">
+        <input matInput
+               type="email" class="form-control" name="email"  placeholder="Email"
+               [(ngModel)]="currentUser.email"
+               required
+               [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button type="button" class="btn btn-danger"(click)="closeDialog()">Close</button>&nbsp;
+    <button mat-button type="submit" class="btn btn-success" [disabled]="!editUserForm.valid">Update User</button>
+  </div>
+
+</form>

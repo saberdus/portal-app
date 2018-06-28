@@ -1,0 +1,67 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <b>Login</b>
+    </mat-card-title>
+    <mat-card-subtitle>
+      Please enter your username and password
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="login-form" #loginUserForm="ngForm">
+      <table class="login-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="form__form-field">
+              <input matInput
+                     id="username"
+                     name="username"
+                     type="text"
+                     placeholder="Username"
+                     maxlength="10"
+                     required
+                     [errorStateMatcher]="matcher"
+                     [formControl]="username">
+              <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="username.invalid">{{getUsernameErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="form__form-field">
+              <input matInput
+                     id="password"
+                     type="password"
+                     name="password"
+                     placeholder="Password"
+                     maxlength="10"
+                     required
+                     [errorStateMatcher]="matcher"
+                     [formControl]="password">
+              <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button
+            [disabled]="!((username.valid) && (password.valid))"
+            (click)="loginUser()"
+            color="primary">
+      Login
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-card-subtitle>
+      You don't have an account? <a routerLink="/register">register</a>
+    </mat-card-subtitle>
+  </mat-card-footer>
+</mat-card>

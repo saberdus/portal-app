@@ -1,0 +1,24 @@
+<div class="col-md-6" [hidden]="submitted">
+  <h2 class="text-center">Find user</h2>
+  <form (ngSubmit)="onSubmit()" #findUserForm="ngForm">
+    <div class="form-group" style="text-align:left">
+      <label for="email">Email address:</label>
+      <input type="email" placeholder="Please type the user eMail address" name="email" class="form-control" id="email"  required [(ngModel)]="eMail" #email="ngModel">
+      <div [hidden]="email.valid || email.pristine"
+           class="alert alert-danger">
+        Email Address is required
+      </div>
+    </div>
+  </form>
+  <button type="submit" class="btn btn-success" [disabled]="!findUserForm.form.valid" (click)="findUser()">Find</button>
+</div>
+<div *ngIf="searchedUser" style="text-align:left">
+  <hr>
+  <h2>User Details</h2>
+  <h3>Editing: {{searchedUser.firstName}} {{searchedUser.lastName}}</h3>
+  <app-update-user [user]="searchedUser"></app-update-user>
+</div>
+<br>
+<div>
+  <button class="btn btn-success" (click)="goBack()">Back</button>
+</div>

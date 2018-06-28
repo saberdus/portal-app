@@ -1,0 +1,62 @@
+.dialog__header {
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 30px;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  margin-right: -1.5em;
+  background-color: #28a745;
+}
+
+.dialog__header-text {
+  color: white;
+  font-size: 15px;
+  text-align: left;
+  padding-top: 0.5em;
+  padding-left: 1em;
+
+  i {
+    text-align: right;
+    float: right;
+    line-height: inherit;
+    margin-right: 1em;
+  }
+
+  i:hover {
+    cursor: pointer;
+  }
+
+  .material-icons {
+    font-size: 15px;
+  }
+}
+
+.dialog__form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  padding-top: 1.5em;
+}
+
+.mat-dialog-content {
+  padding-left: 3em;
+}
+
+.form__form-field {
+  width: 100%;
+}
+
+.buttons--group {
+  padding-top: 2em;
+
+  #btn__save {
+    color: #42B171;
+    margin-right: -7em;
+
+    &:disabled {
+      color: #dddddd;
+      cursor: not-allowed;
+    }
+  }
+}

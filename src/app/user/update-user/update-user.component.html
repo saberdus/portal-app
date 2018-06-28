@@ -1,0 +1,29 @@
+<div class="col-md-6" style="text-align:left">
+  <h2>Update User</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div style="margin-bottom: 1em">
+      <button type="submit"
+              [disabled]="userForm.pristine" class="btn btn-success">Save</button> &nbsp;
+      <button type="button" (click)="revert()"
+              [disabled]="userForm.pristine" class="btn btn-danger">Revert</button>
+    </div>
+
+    <!-- User Detail Controls -->
+    <div class="form-group">
+      <label class="center-block">First name:
+        <input class="form-control" formControlName="firstName">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Last name:
+        <input class="form-control" formControlName="lastName">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Email:
+        <input class="form-control" formControlName="eMail">
+      </label>
+    </div>
+
+  </form>
+</div>

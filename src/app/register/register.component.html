@@ -1,0 +1,114 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <strong>Register</strong>
+    </mat-card-title>
+    <mat-card-subtitle>
+      Please fill in the following fields
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field id="firstname" class="form__form-field">
+              <input matInput
+                     type="text"
+                     name="firstname"
+                     placeholder="First name"
+                     maxlength="15"
+                     [(ngModel)]="user.firstName"
+                     required
+                     [formControl]="firstname">
+              <button mat-button *ngIf="firstname" matSuffix mat-icon-button aria-label="Clear" (click)="firstname.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="firstname.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field id="lastname" class="form__form-field">
+              <input matInput
+                     type="text"
+                     name="lastname"
+                     placeholder="Last name"
+                     maxlength="15"
+                     [(ngModel)]="user.lastName"
+                     required
+                     [formControl]="lastname">
+              <button mat-button *ngIf="lastname" matSuffix mat-icon-button aria-label="Clear" (click)="lastname.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="lastname.invalid">{{getLastNameErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field id="email" class="form__form-field">
+              <input matInput
+                     type="text"
+                     name="email"
+                     placeholder="Email"
+                     maxlength="40"
+                     [(ngModel)]="user.email"
+                     required
+                     [formControl]="email">
+              <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field id="username" class="form__form-field">
+              <input matInput
+                     type="text"
+                     name="username"
+                     placeholder="Username"
+                     maxlength="10"
+                     [(ngModel)]="user.username"
+                     required
+                     [formControl]="username">
+              <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="username.invalid">{{getUsernameErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field id="password" class="form__form-field">
+              <input matInput
+                     type="text"
+                     name="password"
+                     placeholder="Password"
+                     maxlength="10"
+                     [(ngModel)]="user.password"
+                     required
+                     [formControl]="password">
+              <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password.reset()">
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button
+            (click)="registerUser()"
+            [disabled]="!((email.valid) && (password.valid) && (username.valid))"
+            color="primary">
+      Register
+    </button>
+  </mat-card-actions>
+</mat-card>

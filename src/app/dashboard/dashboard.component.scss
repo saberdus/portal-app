@@ -1,0 +1,27 @@
+a {
+  text-decoration: none;
+}
+.grid {
+  margin: 0;
+}
+.module {
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  max-height: 120px;
+  min-width: 120px;
+  background-color: gray;
+  border-radius: 2px;
+}
+.module:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+  color: #607d8b;
+}
+.grid-pad {
+  padding: 30px 30px;
+}
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
+}
+

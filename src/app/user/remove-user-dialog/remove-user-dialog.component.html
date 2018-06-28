@@ -1,0 +1,35 @@
+<div class="dialog__header">
+  <h2 mat-dialog-title class="dialog__header-text">
+    Remove User: {{userToRemove.firstName}} {{userToRemove.lastName}}
+    <i class="material-icons" (click)="closeDialog()">close</i>
+  </h2>
+</div>
+
+<div mat-dialog-content>
+  <div class="col-md-3">
+    <form class="dialog__form" (ngSubmit)="onSubmit()" #removeUserForm="ngForm">
+      <table class="table table-striped">
+        <thead style="text-align:left">
+        <tr>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody style="text-align:left">
+        <tr>
+          <td>{{userToRemove.firstName}}</td>
+          <td>{{userToRemove.lastName}}</td>
+          <td>{{userToRemove.email}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button type="button" class="btn btn-danger"(click)="closeDialog()">Close</button>&nbsp;
+  <button mat-button type="submit" class="btn btn-success" (click)="removeUser()">Remove User</button>
+</div>

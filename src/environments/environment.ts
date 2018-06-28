@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
+  authUrl: 'http://localhost:8080/oauth/token',
+  clientId: 'admin',
+  clientSecret: 'wf1gUMKihO3Dqv5FHbnaSvrG5xU6VtSP',
   production: false
 };
